@@ -37,29 +37,29 @@ public class ConnexionService {
 		this.connexions = new ConcurrentHashMap<>();
 	}
 
-	@PostConstruct
-	protected void postConstruct() throws IOException {
-		this.serverSocket = new ServerSocket(port);
-		//Todo use thread pool
-		new Thread(() -> {
-			while (!this.serverSocket.isClosed()) {
-				try {
-					Socket newSocket = this.serverSocket.accept();
-				} catch (IOException e) {
-					LOG.error("Error while waiting for new connexion on port {}", port, e);
-				}
-			}
-		}).start();
-		new Thread(() -> {
-			while (!this.serverSocket.isClosed()) {
-				try {
-					checkNodeConnexion();
-					Thread.sleep(10000);
-				} catch (InterruptedException e) {
-				}
-			}
-		}).start();
-	}
+//	@PostConstruct
+//	protected void postConstruct() throws IOException {
+//		this.serverSocket = new ServerSocket(port);
+//		//Todo use thread pool
+//		new Thread(() -> {
+//			while (!this.serverSocket.isClosed()) {
+//				try {
+//					Socket newSocket = this.serverSocket.accept();
+//				} catch (IOException e) {
+//					LOG.error("Error while waiting for new connexion on port {}", port, e);
+//				}
+//			}
+//		}).start();
+//		new Thread(() -> {
+//			while (!this.serverSocket.isClosed()) {
+//				try {
+//					checkNodeConnexion();
+//					Thread.sleep(10000);
+//				} catch (InterruptedException e) {
+//				}
+//			}
+//		}).start();
+//	}
 
 	@PreDestroy
 	protected void preDestroy() {

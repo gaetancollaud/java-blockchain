@@ -15,7 +15,7 @@ public class RedissonConfiguration {
 	RedissonClient redisson() throws IOException {
 		Config config = new Config();
 		config.useSingleServer()
-				.setAddress("redis://collaud6.collaud.me:6379");
+				.setAddress("redis://localhost:6379");
 //		config.useClusterServers()
 //				.addNodeAddress("127.0.0.1:7004", "127.0.0.1:7001");
 		return Redisson.create(config);

@@ -68,6 +68,12 @@
 			<version>3.5.7</version>
 		</dependency>
 
+		<dependency>
+			<groupId>com.aparapi</groupId>
+			<artifactId>aparapi</artifactId>
+			<version>1.4.1</version>
+		</dependency>
+
 	</dependencies>
 
 	<dependencyManagement>
